@@ -1,6 +1,6 @@
 function Settings() {
     this.settings = require('./settings.json');
-    this.keychain = require('keytar');
+    //this.keychain = require('keytar');
 
     this.load();
 }
@@ -51,17 +51,19 @@ Settings.prototype.set = function(name, value) {
 }
 
 Settings.prototype.getPassword = function(service) {
-    return this.keychain.getPassword('pussh', service);
+    return null;
+    //return this.keychain.getPassword('pussh', service);
 }
 
 Settings.prototype.setPassword = function(service, password) {
-    if (!password || password == '') {
+    return null;
+    /*if (!password || password == '') {
         this.keychain.deletePassword('pussh', service);
     } else if (this.keychain.getPassword('pussh', service)) {
         this.keychain.replacePassword('pussh', service, password);
     } else {
         this.keychain.addPassword('pussh', service, password);
-    }
+    }*/
 }
 
 module.exports = Settings;
